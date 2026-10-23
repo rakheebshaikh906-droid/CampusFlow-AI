@@ -50,6 +50,29 @@ export default function App() {
     return () => clearInterval(interval);
   }, [refresh]);
 
+  async function deleteTask(task) {
+    const confirmed = window.confirm(`Delete "${task.title}"? This cannot be undone.`);
+    if (!confirmed) return;
+
+    try {
+      const response = await fetch(`${API}/api/tasks/${task.id}`, {
+        method: "DELETE",
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.message || "Could not delete task.");
+
+      setTasks(data.tasks || []);
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", text: `Deleted task: ${task.title}` },
+      ]);
+      setError("");
+      await refresh();
+    } catch (err) {
+      setError(`Could not delete task: ${err.message}`);
+    }
+  }
+
   async function sendCommand(value = command) {
     const text = value.trim();
     if (!text || busy) return;
@@ -520,6 +543,14 @@ export default function App() {
                       Complete
                     </button>
                   )}
+                  <button
+                    className="delete-button"
+                    onClick={() => deleteTask(task)}
+                    aria-label={`Delete task ${task.title}`}
+                    title="Delete task"
+                  >
+                    Delete
+                  </button>
                 </div>
               ))}
             </div>
