@@ -112,6 +112,37 @@ app.get("/api/state", (req, res) => {
 });
 
 // --------------------------------------------------
+// API: DELETE TASK
+// --------------------------------------------------
+
+app.delete("/api/tasks/:id", (req, res) => {
+    const id = Number(req.params.id);
+
+    if (!Number.isInteger(id) || id < 1) {
+        return res.status(400).json({
+            success: false,
+            message: "Invalid task ID.",
+        });
+    }
+
+    try {
+        const deletedTask = tools.deleteTask({ id });
+
+        return res.json({
+            success: true,
+            message: `Deleted task: ${deletedTask.title}`,
+            deletedTask,
+            tasks: tools.listTasks(),
+        });
+    } catch (error) {
+        return res.status(404).json({
+            success: false,
+            message: error.message || "Task not found.",
+        });
+    }
+});
+
+// --------------------------------------------------
 // API: COMMAND ASSISTANT
 // --------------------------------------------------
 
@@ -367,6 +398,7 @@ async function startServer() {
             sessionIdGenerator: undefined,
         });
 
+        // MCP TOOL: ADD TASK
         mcp.registerTool(
             "add_task",
             {
@@ -387,6 +419,7 @@ async function startServer() {
             })
         );
 
+        // MCP TOOL: LIST TASKS
         mcp.registerTool(
             "list_tasks",
             {
@@ -403,6 +436,7 @@ async function startServer() {
             })
         );
 
+        // MCP TOOL: COMPLETE TASK
         mcp.registerTool(
             "complete_task",
             {
@@ -421,6 +455,26 @@ async function startServer() {
             })
         );
 
+        // MCP TOOL: DELETE TASK
+        mcp.registerTool(
+            "delete_task",
+            {
+                description: "Permanently delete a task using its numeric ID",
+                inputSchema: {
+                    id: z.number().int().positive(),
+                },
+            },
+            async ({ id }) => ({
+                content: [
+                    {
+                        type: "text",
+                        text: JSON.stringify(tools.deleteTask({ id })),
+                    },
+                ],
+            })
+        );
+
+        // MCP TOOL: START TIMER
         mcp.registerTool(
             "start_timer",
             {
@@ -439,6 +493,7 @@ async function startServer() {
             })
         );
 
+        // MCP TOOL: PRIORITIZE TASKS
         mcp.registerTool(
             "prioritize_tasks",
             {
@@ -456,6 +511,7 @@ async function startServer() {
             })
         );
 
+        // MCP TOOL: GET NEXT ACTION
         mcp.registerTool(
             "get_next_action",
             {
@@ -495,8 +551,8 @@ async function startServer() {
 
     app.listen(PORT, "0.0.0.0", () => {
         console.log(`CampusFlow API running on port ${PORT}`);
-        console.log(`Health check: /health`);
-        console.log(`MCP endpoint: /mcp`);
+        console.log("Health check: /health");
+        console.log("MCP endpoint: /mcp");
     });
 }
 
