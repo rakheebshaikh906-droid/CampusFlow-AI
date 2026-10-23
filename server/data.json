@@ -1,0 +1,100 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Practice DSA",
+      "deadline": "No deadline",
+      "priority": "Medium",
+      "completed": true,
+      "createdAt": "2026-10-23T07:12:32.611Z"
+    },
+    {
+      "id": 2,
+      "title": "Fix binary search",
+      "deadline": "No deadline",
+      "priority": "High",
+      "completed": true,
+      "createdAt": "2026-10-23T07:23:34.545Z"
+    },
+    {
+      "id": 3,
+      "title": "[Sprint] Practice binary search",
+      "deadline": "Today",
+      "priority": "High",
+      "completed": true,
+      "createdAt": "2026-10-23T10:13:23.715Z"
+    },
+    {
+      "id": 4,
+      "title": "[Sprint] Fix React project bugs",
+      "deadline": "Today",
+      "priority": "High",
+      "completed": true,
+      "createdAt": "2026-10-23T10:13:23.785Z"
+    },
+    {
+      "id": 5,
+      "title": "[Sprint] Practice binary search",
+      "deadline": "Today",
+      "priority": "High",
+      "completed": true,
+      "createdAt": "2026-10-23T10:45:46.780Z",
+      "completedAt": "2026-10-23T10:54:34.364Z"
+    },
+    {
+      "id": 6,
+      "title": "[Sprint] Fix React project bugs",
+      "deadline": "Today",
+      "priority": "High",
+      "completed": true,
+      "createdAt": "2026-10-23T10:45:46.837Z",
+      "completedAt": "2026-10-23T10:54:34.991Z"
+    },
+    {
+      "id": 7,
+      "title": "[Sprint] Practice binary search",
+      "deadline": "Today",
+      "priority": "High",
+      "completed": true,
+      "createdAt": "2026-10-23T10:49:16.197Z",
+      "completedAt": "2026-10-23T10:54:35.487Z"
+    },
+    {
+      "id": 8,
+      "title": "[Sprint] Fix React project bugs",
+      "deadline": "Today",
+      "priority": "High",
+      "completed": true,
+      "createdAt": "2026-10-23T10:49:16.255Z",
+      "completedAt": "2026-10-23T10:54:36.713Z"
+    },
+    {
+      "id": 9,
+      "title": "Practice DSA",
+      "deadline": "No deadline",
+      "priority": "High",
+      "completed": true,
+      "createdAt": "2026-10-23T10:53:57.809Z",
+      "completedAt": "2026-10-23T10:54:37.288Z"
+    },
+    {
+      "id": 10,
+      "title": "Practice DSA",
+      "deadline": "No deadline",
+      "priority": "High",
+      "completed": true,
+      "createdAt": "2026-10-23T10:53:58.724Z",
+      "completedAt": "2026-10-23T10:54:37.841Z"
+    },
+    {
+      "id": 11,
+      "title": "Practice DSA",
+      "deadline": "No deadline",
+      "priority": "High",
+      "completed": true,
+      "createdAt": "2026-10-23T10:53:59.156Z",
+      "completedAt": "2026-10-23T10:54:39.555Z"
+    }
+  ],
+  "nextId": 12
+}
