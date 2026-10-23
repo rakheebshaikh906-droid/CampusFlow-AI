@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 
-const API = "http://localhost:3001";
+const API = "https://campusflow-ai-3n9r.onrender.com";
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
