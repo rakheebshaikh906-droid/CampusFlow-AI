@@ -14,9 +14,10 @@ Instead of switching between multiple productivity tools, developers can organiz
 
 ## Demo Video
 
-Watch the CampusFlow AI walkthrough to see its features, MCP integration, and end-to-end workflow in action.
+Watch the CampusFlow AI walkthrough to see its features,
+MCP integration, and end-to-end workflow in action.
 
-**Video Link:** `https://www.youtube.com/watch?v=bYPgJFtiXBQ`
+**Watch Demo:** [CampusFlow AI Demo](https://www.youtube.com/watch?v=bYPgJFtiXBQ)
 
 > The demo video will be added here after recording and uploading the walkthrough.
 
